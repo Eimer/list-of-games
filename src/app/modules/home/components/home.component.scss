@@ -1,0 +1,67 @@
+.home-content {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1024px;
+  padding: 5px;
+
+  .toggle-language-content {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    mat-form-field {
+      width: 80px;
+
+      &::ng-deep .mat-form-field-wrapper {
+        padding-bottom: 0;
+      }
+    }
+
+  }
+
+  .categories-content {
+    width: 100%;
+    padding: 35px;
+  }
+
+  .searcher-content {
+    width: 100%;
+  }
+
+  .games-list-content {
+    width: 100%;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer {
+    margin-top: 50px;
+    width: 100%;
+    padding: 10px;
+    background: #dedede;
+    bottom: 0;
+
+    .general-info {
+      width: 100%;
+      display: flex;
+      gap: 20px;
+
+      .general, .best-off, .privacy {
+        width: 20%;
+      }
+
+      .footer-image {
+        width: 40%;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .additional-info {
+      width: 100%;
+    }
+  }
+}

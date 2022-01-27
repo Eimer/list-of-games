@@ -1,0 +1,21 @@
+.game-card-content {
+  width: 200px;
+  height: 200px;
+  font-size: 1.5em;
+  font-style: italic;
+  border-radius: 15px;
+  border: 1px solid grey;
+  user-select: none;
+
+  img {
+    margin-top: 5px;
+    border-radius: 20px;
+    width: 180px;
+    height: 70%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition-duration: 0.3s;
+  }
+}
