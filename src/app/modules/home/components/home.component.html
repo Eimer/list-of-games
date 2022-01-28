@@ -11,14 +11,14 @@
     <ng-container *ngTemplateOutlet="categories.length?  categories_template : loading "></ng-container>
   </div>
   <div class="searcher-content">
-    <app-searcher></app-searcher>
+    <app-searcher
+      [searchControl]="searchControl"
+      (onSearchChanged)="onSearchChanged($event)"
+    ></app-searcher>
   </div>
   <br>
   <div class="games-list-content flex-row-center">
-    <app-game-card></app-game-card>
-    <app-game-card></app-game-card>
-    <app-game-card></app-game-card>
-    <app-game-card></app-game-card>
+    <ng-container *ngTemplateOutlet="games?.length?  games_template : loading "></ng-container>
   </div>
   <div class="footer flex-col">
     <div class="general-info">
@@ -81,6 +81,15 @@
     <app-category-card *ngFor="let category of categories; let i = index"
                        [data]="category"
                        [widthIndex]="i"
+                       (onSelectedCategory)="onSelectedCategory($event)"
     ></app-category-card>
+  </div>
+</ng-template>
+
+<ng-template #games_template>
+  <div class="games-list-content flex-row-center" >
+    <app-game-card *ngFor="let game of games"
+      [data]="game"
+    ></app-game-card>
   </div>
 </ng-template>

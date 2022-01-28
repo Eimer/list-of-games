@@ -11,6 +11,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../../../environments/environment";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     RouterModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   exports: [
     SearcherComponent,

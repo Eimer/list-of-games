@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CategoryInterface} from "../../../interfaces/category.interface";
 
 @Component({
@@ -7,12 +7,18 @@ import {CategoryInterface} from "../../../interfaces/category.interface";
   styleUrls: ['./category-card.component.scss']
 })
 export class CategoryCardComponent implements OnInit {
-  @Input() data: CategoryInterface | undefined;
+  // @ts-ignore
+  @Input() data: CategoryInterface;
   @Input() widthIndex: number = -1;
+  @Output() onSelectedCategory = new EventEmitter<CategoryInterface>();
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  public selectCategory(data: CategoryInterface) {
+    this.onSelectedCategory.emit(data);
   }
 }

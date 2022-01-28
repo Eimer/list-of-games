@@ -1,5 +1,6 @@
 <div class="category-card-content flex-col" *ngIf="widthIndex >= 0"
      [style]="{left: widthIndex * 120 + 'px'}"
+     (click)="selectCategory(data)"
 >
   <img class="category-card-img" src="assets/images/game-card-title.png" alt="ERROR">
   <br>
