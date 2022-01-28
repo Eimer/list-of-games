@@ -5,6 +5,7 @@ import {HomeRoutingModule} from "./home-routing.module";
 import {CategoriesModule} from "../categories/categories.module";
 import {SharedModule} from "../shared/shared.module";
 import {GamesModule} from "../games/games.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {GamesModule} from "../games/games.module";
     CategoriesModule,
     SharedModule,
     GamesModule,
+    ReactiveFormsModule,
   ],
 })
 export class HomeModule {

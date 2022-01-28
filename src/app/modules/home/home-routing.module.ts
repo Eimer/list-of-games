@@ -16,6 +16,16 @@ const routes: Routes = [
     data: {lang: env.defaultLang},
     component: HomeComponent
   },
+  {
+    path: env.supportedLangs.ru,
+    data: {lang: env.supportedLangs.ru},
+    component: HomeComponent
+  },
+  {
+    path: env.supportedLangs.en,
+    data: {lang: env.supportedLangs.en},
+    component: HomeComponent
+  }
 ];
 
 @NgModule({
