@@ -6,9 +6,6 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AppServiceService {
-  // @ts-ignore
-  private readonly itemsRef: AngularFirestoreCollection<any>;
-
   constructor(
     private store: AngularFirestore
   ) {
@@ -23,8 +20,13 @@ export class AppServiceService {
   }
 
 
-  searchGameQuery(searchStr: string) {
-    return this.store.collection('categories', ref => ref.where('name', '>=', searchStr)
-      .where('name', '<=', '' + '\uf8ff')).valueChanges();
+  searchGameQuery(cateGoryName: string, searchStr: string) {
+    return this.store.collection('categories').doc(cateGoryName)
+      .collection('games', ref => ref.where('name', '>=', searchStr)
+        .where('name', '<=', searchStr + '\uf8ff')).valueChanges();
+  }
+
+  getCategoryByName(name: string): Observable<any> {
+    return this.store.collection('categories').doc(name).get()
   }
 }

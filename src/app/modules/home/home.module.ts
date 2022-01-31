@@ -11,14 +11,14 @@ import {ReactiveFormsModule} from "@angular/forms";
   declarations: [
     HomeComponent,
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    CategoriesModule,
-    SharedModule,
-    GamesModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        CategoriesModule,
+        SharedModule,
+        GamesModule,
+        ReactiveFormsModule
+    ],
 })
 export class HomeModule {
 }

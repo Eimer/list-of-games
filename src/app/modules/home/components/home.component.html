@@ -1,5 +1,5 @@
 <div class="home-content flex-col">
-  <div class="toggle-language-content" *ngIf="langFormControl && langFormControl.valid">
+  <div class="toggle-language-content" *ngIf="langFormControl && langFormControl.valid && categories.length">
     <mat-form-field appearance="outline">
       <mat-label>Lang</mat-label>
       <mat-select [formControl]="langFormControl">
@@ -8,7 +8,8 @@
     </mat-form-field>
   </div>
   <div class="categories-content flex-row-center">
-    <ng-container *ngTemplateOutlet="categories.length?  categories_template : loading "></ng-container>
+    <ng-container *ngTemplateOutlet="categories.length?
+      categories_template : loading "></ng-container>
   </div>
   <div class="searcher-content">
     <app-searcher
@@ -16,10 +17,27 @@
       (onSearchChanged)="onSearchChanged($event)"
     ></app-searcher>
   </div>
+  <h1 style="text-align: left; width: 100%"><b>{{selectedCategory?.name}}</b></h1>
   <br>
   <div class="games-list-content flex-row-center">
-    <ng-container *ngTemplateOutlet="games?.length?  games_template : loading "></ng-container>
+    <ng-container
+      *ngTemplateOutlet="games?.length? games_template : ifSearchedGames ? loading : noGames"></ng-container>
+    <div class="show-more" *ngIf="games?.length && gamesItemsPerPage < games.length">
+      <button
+        mat-raised-button
+        (click)="showMore()"
+      >Show more
+      </button>
+    </div>
+    <div class="hide" *ngIf="games?.length && gamesItemsPerPage >= games.length">
+      <button
+        (click)="hideGames()"
+        mat-raised-button
+      >Hide
+      </button>
+    </div>
   </div>
+  <br>
   <div class="footer flex-col">
     <div class="general-info">
       <div class="general">
@@ -76,6 +94,10 @@
   </div>
 </ng-template>
 
+<ng-template #noGames>
+  <h1>{{'Can not find games in ' + selectedCategory?.name}}</h1>
+</ng-template>
+
 <ng-template #categories_template>
   <div class="categories-content flex-row-center">
     <app-category-card *ngFor="let category of categories; let i = index"
@@ -87,9 +109,10 @@
 </ng-template>
 
 <ng-template #games_template>
-  <div class="games-list-content flex-row-center" >
-    <app-game-card *ngFor="let game of games"
-      [data]="game"
+  <div class="games-list-content flex-row">
+    <app-game-card *ngFor="let game of games; let i = index"
+                   [data]="game"
+                   [isShown]="i < gamesItemsPerPage"
     ></app-game-card>
   </div>
 </ng-template>

@@ -12,7 +12,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {environment} from "../../../environments/environment";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {ReactiveFormsModule} from "@angular/forms";
-
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   exports: [
     SearcherComponent,
@@ -41,7 +42,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     RouterModule,
     AngularFireModule,
     AngularFireDatabaseModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonModule
   ]
 })
 export class SharedModule {

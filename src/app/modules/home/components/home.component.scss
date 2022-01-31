@@ -51,10 +51,16 @@
 
       .general, .best-off, .privacy {
         width: 20%;
+        @media screen and (max-width: 600px) {
+          width: auto;
+        }
       }
 
       .footer-image {
         width: 40%;
+        @media screen and (max-width: 600px) {
+          display: none;
+        }
 
         img {
           width: 100%;

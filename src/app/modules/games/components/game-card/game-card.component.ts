@@ -8,6 +8,7 @@ import {GameCardInterface} from "../../../../interfaces/game-card.interface";
 })
 export class GameCardComponent implements OnInit {
   @Input() data : GameCardInterface | undefined
+  @Input() isShown : boolean | undefined;
   constructor() { }
 
   ngOnInit(): void {

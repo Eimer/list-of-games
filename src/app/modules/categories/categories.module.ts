@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { CategoryCardComponent } from './category-card/category-card.component';
+import {CategoryCardComponent} from './category-card/category-card.component';
 import {SharedModule} from "../shared/shared.module";
 
 
